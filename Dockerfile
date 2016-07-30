@@ -2,6 +2,9 @@ FROM debian:jessie
 
 RUN apt-get update && apt-get install -y \
       apache2                            \
+      apache2-mpm-worker                 \
+      libapache2-mod-wsgi                \
+      libapache2-svn                     \
     && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod proxy_http
