@@ -1,10 +1,9 @@
-FROM debian:jessie
+FROM debian:stretch
 
 RUN apt-get update && apt-get install -y \
       apache2                            \
-      apache2-mpm-worker                 \
       libapache2-mod-wsgi                \
-      libapache2-svn                     \
+      libapache2-mod-svn                 \
       subversion                         \
       curl                               \
 && rm -rf /var/lib/apt/lists/*
