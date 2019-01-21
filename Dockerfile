@@ -6,11 +6,8 @@ RUN apt-get update && apt-get install -y \
       libapache2-mod-wsgi                \
       libapache2-svn                     \
       subversion                         \
-      python-pip                         \
-    && rm -rf /var/lib/apt/lists/*
-
-ADD requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
+      curl                               \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod proxy_http authz_groupfile
 ADD kolekti.conf /etc/apache2/conf-enabled/kolekti.conf
