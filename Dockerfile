@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
       curl                               \
 && rm -rf /var/lib/apt/lists/*
 
-RUN a2enmod proxy_http authz_groupfile
+RUN a2enmod rewrite headers env mime dir setenvif proxy_http proxy_fcgi authz_groupfile
 ADD kolekti.conf /etc/apache2/conf-enabled/kolekti.conf
 
 ADD entrypoint.sh /
